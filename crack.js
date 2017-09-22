@@ -72,7 +72,7 @@ congruentChars.forEach(function(observedCharacters, position){
     var mostLikelyOffsets = [];
     sums.forEach((s,i) => { mostLikelyOffsets.push({ i: i, sum: s }) } );
 
-    mostLikelyOffsets = mostLikelyOffsets.sort((a,b) => a.sum - b.sum).slice(0,5);
+    mostLikelyOffsets = mostLikelyOffsets.sort((a,b) => a.sum - b.sum).slice(0,10);
 
     console.log("\nMost likely offsets for position " + position + ":");
     mostLikelyOffsets.forEach(offset => {
@@ -142,7 +142,8 @@ stdin.addListener("data", function(d) {
             wheel.positions[inputInt]++;
         }
 
-        console.log(wheel.positions.toString() + " (1-indexed)");
+        console.log("Current Rotations:");
+        console.log(wheel.positions.toString() + " (1-indexed; enter an index to rotate)");
         console.log(wheel.getKey(true));
         console.log(wheel.decode());
     } else if(input.toLowerCase() == "x") {
